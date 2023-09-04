@@ -30,6 +30,9 @@ int main () {
   << "Imprisoned in a desolate dungeon, Isra's life took a dramatic turn when she heard a mysterious voice and escaped into a magical forest. As her journey unfolds, she discovers her unique abilities and the true power of her scars.\n\n"
   << "She must confront her traumatic past, depression, and the scars that haunt her to save her kingdom from an evil king who threatens to destroy her forest home.\n\n";
 
+
+
+
   // Part 1
 
   cout << "\nPart 1: The Mysterious Voice!\n\n";
@@ -46,7 +49,11 @@ int main () {
   bool startPart1 = true;
   char choice1;
   bool playAgain = true;
-  bool continuePart2 = true;
+  bool continuePart2;
+
+
+
+
 
 
   // Part 1 Answer
@@ -74,14 +81,12 @@ int main () {
     cout << "\nIsra, overwhelmed by fear and mistrust, unleashes her uncontrollable magic powers on the talking owl, slaying it.\n"
     << "The moment she does this, a loud commotion echoes through the forest. Suddenly, the king's soldiers, alerted by the disturbance, surround Isra and capture her. They drag her back to the tower, where she is imprisoned once more.\n\n";
     playAgain = restartGame();
-    startPart1 = false;
     break;
 
     case 'C':
     cout << "\nIsra decides to continue walking deeper into the forest without engaging with the owl. As she wanders further into the enchanted woods, she loses her way and inadvertently stumbles upon the king's soldiers.\n"
     << "They recognize her as the missing heir to the throne and promptly capturye her, leading to her return to the tower and continued captivity.\n\n";
     playAgain = restartGame();
-    startPart1 = false;
     break;
 
     default:
@@ -92,6 +97,18 @@ int main () {
     }
 
   }
+
+
+
+
+
+
+  // Part 2
+
+  bool playPart2 = continuePart2;
+
+  if (playPart2) {
+
 
   cout << "\n\nPart 2: The Enchanted Sanctuary!\n\n";
 
@@ -105,7 +122,7 @@ int main () {
   
   char choice2;
 
-  while (continuePart2) {
+  while (playPart2) {
   cout << "Enter A - You hesitates momentarily, your gaze filled with intrigue, before deciding to consult with Orlin further before embarking on this perilous journey.\n";
   cout << "Enter B - You voice your doubts about the quest, a hint of curiosity in your tone, and inquires of Orlin whether there might be an alternative path to uncover the answers you seeks.\n";
   cout << "Enter C - You accept the challenge without a second thought, your eyes burning with determination as you heads toward the dragon's cave, eager to embrace the adventure.\n";
@@ -119,13 +136,13 @@ int main () {
     case 'A' :
     cout << "\nIsra, driven by an unshakable resolve, embarks on her perilous journey into the heart of the forest. Guided by her determination and courage, she successfully locates the dragon's cave.\n"
     << "After a fierce battle of wits and strength, she manages to retrieve a single scale from the hoard, proving her worthiness to Orlin. This achievement brings her one step closer to uncovering the secrets of her scars and destiny.\n";
-    continuePart2 = false;
+    playPart2 = false;
     break;
 
     case 'B' :
     cout << "\nIsra's hesitation and decision to seek further guidance lead her to a treacherous fate. As she returns to Orlin for advice, she finds the talking owl gone, leaving her alone in the Enchanted Sanctuary. Without Orlin's guidance, she wanders deeper into the mystical forest, lost and disoriented.\n"
     << "As night falls, the forest becomes an eerie, haunting place. Isra's fear grows, and she stumbles into a trap set by the forest's malevolent spirits. They ensnare her and drag her deeper into the darkness, where her doom awaits, her quest forever unfulfilled.\n";
-    continuePart2 = false;
+    playPart2 = false;
     break;
 
     case 'C' :
@@ -137,6 +154,8 @@ int main () {
     cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
     playAgain = restartGame();
     break;
+
+  }
 
   }
 
