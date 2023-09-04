@@ -49,7 +49,7 @@ int main () {
   bool startPart1 = true;
   char choice1;
   bool playAgain = true;
-  bool continuePart2;
+  bool continuePart2 = false;
 
 
 
@@ -73,7 +73,8 @@ int main () {
     case 'A':
       cout << "\nIsra cautiously introduces herself to the talking owl, saying, \"I am Isra, and I am lost in this forest. I have come seeking freedom and answers. Who are you, wise creature?\"\n"
       << "The talking owl nods and replies, \"Welcome, Isra. I am Orlin, guardian of this magical forest. Your presence here is no accident. Follow me, and I shall guide you to Sanctuary, where your journey truly begins.\"\n"
-      << "Orlin spreads its wings and flies deeper into the forest, and Isra follows, eager to uncover the secrets of her newfound world.\n";
+      << "Orlin spreads its wings and flies deeper into the forest, and Isra follows, eager to uncover the secrets of her newfound world.\n\n";
+      startPart1 = false;
       continuePart2 = true;
     break;
 
@@ -135,19 +136,20 @@ int main () {
   switch (choice2) {
     case 'A' :
     cout << "\nIsra, driven by an unshakable resolve, embarks on her perilous journey into the heart of the forest. Guided by her determination and courage, she successfully locates the dragon's cave.\n"
-    << "After a fierce battle of wits and strength, she manages to retrieve a single scale from the hoard, proving her worthiness to Orlin. This achievement brings her one step closer to uncovering the secrets of her scars and destiny.\n";
-    playPart2 = false;
+    << "After a fierce battle of wits and strength, she manages to retrieve a single scale from the hoard, proving her worthiness to Orlin. This achievement brings her one step closer to uncovering the secrets of her scars and destiny.\n\n";
+    playAgain = restartGame();
     break;
 
     case 'B' :
     cout << "\nIsra's hesitation and decision to seek further guidance lead her to a treacherous fate. As she returns to Orlin for advice, she finds the talking owl gone, leaving her alone in the Enchanted Sanctuary. Without Orlin's guidance, she wanders deeper into the mystical forest, lost and disoriented.\n"
-    << "As night falls, the forest becomes an eerie, haunting place. Isra's fear grows, and she stumbles into a trap set by the forest's malevolent spirits. They ensnare her and drag her deeper into the darkness, where her doom awaits, her quest forever unfulfilled.\n";
-    playPart2 = false;
+    << "As night falls, the forest becomes an eerie, haunting place. Isra's fear grows, and she stumbles into a trap set by the forest's malevolent spirits. They ensnare her and drag her deeper into the darkness, where her doom awaits, her quest forever unfulfilled.\n\n";
+    playAgain = restartGame();
     break;
 
     case 'C' :
     cout << "\nIsra, intrigued by the idea of alternative avenues, voices her doubts to Orlin. However, Orlin's reaction is unexpected. The talking owl, sensing her hesitation, transforms into a malevolent specter that ensnares Isra with dark magic.\n"
-    << "She becomes paralyzed and helpless as Orlin's true, sinister nature is revealed. The specter imprisons her in an eternal nightmare within the Enchanted Sanctuary, a fate worse than death, where she is tormented by her fears and regrets, with no hope of ever escaping or discovering the truth about her scars and destiny.\n";
+    << "She becomes paralyzed and helpless as Orlin's true, sinister nature is revealed. The specter imprisons her in an eternal nightmare within the Enchanted Sanctuary, a fate worse than death, where she is tormented by her fears and regrets, with no hope of ever escaping or discovering the truth about her scars and destiny.\n\n";
+    playPart2 = false;
     break;
     
     default:
