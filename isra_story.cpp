@@ -6,6 +6,8 @@ using namespace std;
 bool startPart1 = true;
 bool playPart2 = false;
 bool playPart3 = false;
+bool playPart4 = false;
+bool playPart5 = false;
 bool playAgain = true;
 
 class Part1;
@@ -247,6 +249,7 @@ public:
                     cout << "\nIsra, fearing the consequences of awakening dormant darkness, chooses to keep the knowledge a secret and become the forest's guardian. The tree's sinister tone melts away, and the Tree of Knowledge nods approvingly.\n"
                         << "It grants her its blessing and reveals the path to the final challenge that will help her unlock the true potential of her scars.\n\n";
                     playPart3 = false;
+                    playPart4 = true;
                     break;
 
                 case 'C':
@@ -262,6 +265,84 @@ public:
         }
       return false;
     }
+};
+
+// Part 4
+
+class Part4 {
+public:
+  bool play() {
+    char choice4;
+
+      if (playPart4) {
+
+    cout << "Part 4: The Final Challenge - The Prophecy Unveiled\n\n";
+
+    cout << "Isra, now the guardian of the mystical forest, embarked on her final challenge. The Tree of Knowledge spoke of a prophecy, whispered through the ages:\n\n"
+    << "\"In the darkest hour, when shadows dance, and the night is cloaked in the shroud of the unknown, a guardian shall emerge. Born of scars, bound by choice, their fate intertwined with the ancient tree. To ascend, one must descend, to claim the throne of nightmares, the realm of dreams.\"\n\n"
+    << "The Tree revealed a hidden path deep within the forest, leading Isra to an ominous clearing shrouded in twilight. In its center stood a colossal, gnarled tree, twisted and malevolent, known as the \"Nightmare's Embrace.\"\n\n"
+    << "The Owl, bound by the sacred tree's commands, had lurked in the shadows, secretly draining Isra's energy and mystical powers over time, hoping to keep her imprisoned in the forest. But the time had come for the final revelation.\n\n";
+
+    cout << "The Final Challenge Question:\n\n"
+    << "Before her stood Nightmare's Embrace, its eerie presence palpable. Isra knew she had to confront the darkness that lay within, for this was the ultimate test. The Tree of Knowledge's voice echoed in her mind as she faced the grotesque entity:\n\n"
+    << "\"To fulfill the prophecy, you must make a choice, Isra. Face the Nightmare's Embrace and reveal its true nature, or remain forever ensnared in this cursed realm.\"\n\n";
+
+    cout << "What do you do?\n\n";
+
+    cout << "Enter A - You gather your courage and confront the Nightmare's Embrace, determined to unveil its true nature.\n";
+    cout << "Enter B - Fear grips your heart, and you hesitate, paralyzed by the malevolent aura. You contemplate retreating.\n";
+    cout << "Enter C - Feeling powerless and alone, you choose to surrender to the darkness, embracing it as a part of yourself.\n";
+
+    cout << "\n\nEnter your choice:\n\n";
+
+    choice4 = toupper(choice4);
+
+    switch (choice4) {
+      case 'A':
+      cout << "Isra, feeling the weight of her fear and hesitation, made the brave decision to confront the Nightmare's Embrace. As she approached the malevolent entity, the shadows around her began to writhe and twist, enveloping her in a vortex of darkness. The Nightmare's Embrace unleashed its full power, draining Isra's life force until she became a withered husk, forever bound to the malevolent entity. Her journey seemed to reach its tragic end, consumed by the very darkness she sought to confront.\n";
+      playAgain = restartGame();
+      break;
+
+      case 'B':
+      cout << "Fear gripped Isra's heart, and she hesitated in the face of the malevolent aura emanating from the Nightmare's Embrace. She contemplated retreating, but something within her urged her to stay. As she lingered in indecision, the darkness around her grew stronger, eventually overpowering her. Isra's choice to hesitate led to her being ensnared by the malevolent entity, trapped in a nightmarish existence within the forest's shadows.\n";
+      playAgain = restartGame();
+      break;
+
+      case 'C':
+      cout << "Feeling powerless and alone, Isra chose to surrender to the darkness, embracing it as a part of herself and fulfilling the prophecy. As she embraced the shadows, a revelation washed over her—the Owl, once her foe, was also a victim of the forest's curse. The Owl's sinister commands were driven by the forest's darkness. Isra's acceptance of this truth allowed her to connect with the Owl on a deeper level. Together, they unraveled the forest's curse, freeing both themselves and the mystical realm.\n";
+      playPart4 = false;
+      playPart5 = true;
+      break;
+
+      default:
+      cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
+      playAgain = restartGame();
+      break;
+
+    }
+
+  }
+return false;
+
+  }
+};
+
+// Part 5
+
+class Part5 {
+public:
+  bool play() {
+
+     if (playPart5) {
+
+    cout << "The Final Revelation: Daughter of the Night\n\n";
+
+    cout << "As Isra summoned her inner strength and faced the Nightmare's Embrace, the tree's sinister facade shattered. It transformed into a swirling vortex of shadows and nightmares, revealing the true nature of the forest's curse.\n\n"
+    << "With unparalleled bravery, Isra confronted the darkness, forcing it to yield to her will. The shadows, once menacing, now danced to her command. Isra did the unthinkable—she decided to slay the twisted tree and shape a throne from its wood.\n\n"
+    << "In that moment, the prophecy unfolded. Isra became the Daughter of the Night, ruler of the realm that she had once feared. The Nightmare Paradise, as it came to be known, was her domain, where dreams and nightmares intertwined, and the unknown held no terror.\n\n";
+  }
+  return false;
+  }
 };
 
 // Let the game begin!
@@ -282,6 +363,12 @@ int main() {
 
       Part3 part3;
       while (part3.play()) {}
+
+      Part4 part4;
+      while (part4.play()) {}
+
+      Part5 part5;
+      while (part5.play()) {}
 
     }
 
