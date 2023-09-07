@@ -3,7 +3,17 @@
 #include <cctype>
 using namespace std;
 
+bool startPart1 = true;
+bool playPart2 = false;
+bool playPart3 = false;
+bool playAgain = true;
+
+class Part1;
+class Part2;
+class Part3;
+
 // Character Class
+
 class Character {
 public:
     Character(const string& name) : name(name) {}
@@ -55,7 +65,7 @@ bool restartGame() {
         cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
         return false;
     }
-}
+};
 
 bool play() {
     char playGame;
@@ -70,31 +80,9 @@ bool play() {
         cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
         return false;
     }
-}
+};
 
-class Game {
-public:
 
-  void start() {
-    bool playPart1 = Part1::play();
-    bool playPart2 = false;
-    bool playPart3 = false;
-    bool playAgain = true;
-    bool restartGame = true;
-
-    if (playPart1) {
-      playPart2 = Part2::play();
-    }
-
-    if (playPart2) {
-      playPart3 = Part3::play();
-    }
-
-    if (!playPart1 || !playPart2 || !playPart3) {
-      playAgain = restartGame();
-    }
-  }
-}
 
 // Story Elements
 
@@ -110,16 +98,11 @@ void titleSynopsis() {
         << "She must confront her traumatic past, depression, and the scars that haunt her to save her kingdom from an evil king who threatens to destroy her forest home.\n\n";
 }
 
-bool startPart1 = true;
-bool playPart2 = false;
-bool playPart3 = false;
-bool playAgain = true;
-
 // Part 1
 
 class Part1 {
 public:
-    static bool play() {
+    bool play() {
         char choice1;
         if (startPart1) {
             cout << "\nPart 1: The Mysterious Voice!\n\n";
@@ -175,7 +158,7 @@ public:
 
 class Part2 {
 public:
-    static bool play() {
+    bool play() {
         char choice2;
         if (playPart2) {
             cout << "\n\nPart 2: The Enchanted Sanctuary!\n\n";
@@ -231,7 +214,7 @@ public:
 
 class Part3 {
 public:
-    static bool play() {
+    bool play() {
         char choice3;
         if (playPart3) {
             cout << "\n\nPart 3: The Sinister Revelation\n\n";
@@ -285,8 +268,22 @@ public:
 
 int main() {
 
-  
+    titleSynopsis();
 
+    // Add player name input
+
+    while (play()) {
+
+      Part1 part1;
+      while (part1.play()) {}
+
+      Part2 part2;
+      while (part2.play()) {}
+
+      Part3 part3;
+      while (part3.play()) {}
+
+    }
 
   return 0;
 }
