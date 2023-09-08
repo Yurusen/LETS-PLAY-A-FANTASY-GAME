@@ -26,29 +26,52 @@ protected:
     string name;
 };
 
-// Owl Class
 class Owl : public Character {
 public:
-    Owl(const string& name) : Character(name) {}
+    Owl(const string& name) : Character("Nocturna") {}
     void introduce() override {
-        cout << "\"I am " << name << ", guardian of this magical forest.\"\n";
+        cout << "\"I am the wise sentinel of the night, guardian of ancient secrets, and messenger of destiny - I am the Owl of the Obscure, " << name << ".\"\n";
     }
     bool interact() override {
-        cout << name << " asks, \"Who are you, traveler of the night? What brings you to our realm?\"\n";
+        cout << name << ": \"Who are you, traveler of the night? What brings you to our realm?\"\n";
         return true;
     }
 };
 
 class Dragon : public Character {
 public:
-    Dragon(const string& name) : Character(name) {}
+    Dragon(const string& name) : Character("Inferix") {}
     void introduce() override {
-        cout << "\"I am the Dragon\"\n";
+        cout << "\"I am the fiery embodiment of power and legend, a force of nature itself - I am the Dragon of the Dawn, " << name << ".\"\n";
     }
     bool interact() override {
-        cout << name << " \n";
+        cout << name << ": \"Venture forth, for destiny awaits, and I am the crucible that forges heroes.\"\n";
         return true;
     }
+};
+
+class SacredTree : public Character {
+public:
+  SacredTree(const string& name) : Character("Eldertwine") {}
+  void introduce() override {
+    cout << "\"Rooted in time, keeper of enigmatic wisdom, and witness to the unfolding destinies, I am the Sacred Sentinal of Secrets, " << name << ".\"\n";
+  }
+  bool interact() override {
+    cout << name << ": \"In the heart of my sanctuary, the answers to your deepest questions lie. Are you prepared to unveil your destiny?\"\n";
+    return true;
+  }
+};
+
+class NightmaresEmbrace : public Character {
+public:
+  NightmaresEmbrace(const string& name) : Character("Desovortex") {}
+  void introduce() override {
+    cout << "\"I am the shrouded enigma, the personification of fear and the unknown, I am the Nightmares Embrace, " << name << "\"\n";
+  }
+  bool interact() override {
+    cout << name << ": \"Confront your inner darkness or be forever ensnared in this cursed realm - the choice is yours.\"\n";
+    return true;
+  }
 };
 
 // Functions
@@ -83,8 +106,6 @@ bool play() {
         return false;
     }
 };
-
-
 
 // Story Elements
 
@@ -373,4 +394,5 @@ int main() {
     }
 
   return 0;
+
 }
