@@ -10,6 +10,9 @@ bool playPart4 = false;
 bool playPart5 = false;
 bool playAgain = true;
 
+bool embarkQuest = true;
+
+
 class Part1;
 class Part2;
 class Part3;
@@ -81,21 +84,13 @@ public:
 
 // Functions
 
-bool restartGame() {
-    char playAgain;
-    cout << "Would you like to start over? (Y/N) : \n\n";
-    cin >> playAgain;
-    if (toupper(playAgain) == 'Y') {
-      startPart1 = true;
-      playPart2 = false;
-      playPart3 = false;
-      return true;
-    }
-    else {
-        cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
-        return false;
-    }
-};
+string getplayerName() {
+    string playerName;
+    cout << "\n\nWelcome, brave traveler!\n\n"
+    << "What name do you bear on this fantastical journey: ";
+    cin >> playerName;
+    return playerName;
+}
 
 bool play() {
     char playGame;
@@ -110,7 +105,23 @@ bool play() {
         cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
         return false;
     }
-};
+}
+
+bool restartGame() {
+    char playAgain;
+    cout << "Would you like to start over? (Y/N) : \n\n";
+    cin >> playAgain;
+    if (toupper(playAgain) == 'Y') {
+      startPart1 = true;
+      playPart2 = false;
+      playPart3 = false;
+      return true;
+    }
+    else {
+        cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
+        return false;
+    }
+}
 
 char getPlayerChoice() {
     char choice;
@@ -375,9 +386,11 @@ int main() {
 
     titleSynopsis();
 
-    // Add player name input
+    char playGame = play();
 
-    while (play()) {
+    string playerName = getplayerName();
+
+    while (embarkQuest) {
 
       Part1 part1;
       while (part1.play()) {}
