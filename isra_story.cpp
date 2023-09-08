@@ -26,9 +26,14 @@ protected:
     string name;
 };
 
+const string OWL_NAME = "Nocturna";
+const string DRAGON_NAME = "Inferix";
+const string SACRED_TREE_NAME = "Eldertwine";
+const string NIGHTMARES_EMBRACE_NAME = "Desovortex";
+
 class Owl : public Character {
 public:
-    Owl(const string& name) : Character("Nocturna") {}
+    Owl(const string& name) : Character(name) {}
     void introduce() override {
         cout << "\"I am the wise sentinel of the night, guardian of ancient secrets, and messenger of destiny - I am the Owl of the Obscure, " << name << ".\"\n";
     }
@@ -40,7 +45,7 @@ public:
 
 class Dragon : public Character {
 public:
-    Dragon(const string& name) : Character("Inferix") {}
+    Dragon(const string& name) : Character(name) {}
     void introduce() override {
         cout << "\"I am the fiery embodiment of power and legend, a force of nature itself - I am the Dragon of the Dawn, " << name << ".\"\n";
     }
@@ -52,7 +57,7 @@ public:
 
 class SacredTree : public Character {
 public:
-  SacredTree(const string& name) : Character("Eldertwine") {}
+  SacredTree(const string& name) : Character(name) {}
   void introduce() override {
     cout << "\"Rooted in time, keeper of enigmatic wisdom, and witness to the unfolding destinies, I am the Sacred Sentinal of Secrets, " << name << ".\"\n";
   }
@@ -64,7 +69,7 @@ public:
 
 class NightmaresEmbrace : public Character {
 public:
-  NightmaresEmbrace(const string& name) : Character("Desovortex") {}
+  NightmaresEmbrace(const string& name) : Character(name) {}
   void introduce() override {
     cout << "\"I am the shrouded enigma, the personification of fear and the unknown, I am the Nightmares Embrace, " << name << "\"\n";
   }
@@ -107,6 +112,13 @@ bool play() {
     }
 };
 
+char getPlayerChoice() {
+    char choice;
+    cout << "\n\nEnter your choice: ";
+    cin >> choice;
+    return toupper(choice);    
+}
+
 // Story Elements
 
 void titleSynopsis() {
@@ -142,9 +154,7 @@ public:
             cout << "Enter A - You introduce yourself and explain your journey to the talking owl.\n";
             cout << "Enter B - You don't trust the owl and unleash your unbridled mystical abilities, slaying the owl.\n";
             cout << "Enter C - You continue walking deeper into the forest without engaging with the owl.\n";
-            cout << "\nEnter your choice\n\n";
-            cin >> choice1;
-            choice1 = toupper(choice1);
+            choice1 = getPlayerChoice();
 
             switch (choice1) {
                 case 'A':
@@ -199,9 +209,7 @@ public:
             cout << "Enter A - You hesitate momentarily, your gaze filled with intrigue, before deciding to consult with Orlin further before embarking on this perilous journey.\n";
             cout << "Enter B - You voice your doubts about the quest, a hint of curiosity in your tone, and inquire of Orlin whether there might be an alternative path to uncover the answers you seek.\n";
             cout << "Enter C - You accept the challenge without a second thought, your eyes burning with determination as you head toward the dragon's cave, eager to embrace the adventure.\n";
-            cout << "\n\nEnter your choice\n\n";
-            cin >> choice2;
-            choice2 = toupper(choice2);
+            choice2 = getPlayerChoice();
 
             switch (choice2) {
                 case 'A':
@@ -256,9 +264,7 @@ public:
             cout << "Enter A - You decide to share your newfound knowledge with the world, hoping to use your power for good.\n";
             cout << "Enter B - Fearing the consequences of awakening dormant darkness, you choose to keep the knowledge a secret and become the forest's guardian.\n";
             cout << "Enter C - Feeling overwhelmed by the tree's revelation, contemplates fleeing the forest altogether to avoid the weight of this decision.\n";
-            cout << "\n\nEnter your choice\n\n";
-            cin >> choice3;
-            choice3 = toupper(choice3);
+            choice3 = getPlayerChoice();
 
             switch (choice3) {
                 case 'A':
@@ -313,10 +319,7 @@ public:
     cout << "Enter A - You gather your courage and confront the Nightmare's Embrace, determined to unveil its true nature.\n";
     cout << "Enter B - Fear grips your heart, and you hesitate, paralyzed by the malevolent aura. You contemplate retreating.\n";
     cout << "Enter C - Feeling powerless and alone, you choose to surrender to the darkness, embracing it as a part of yourself.\n";
-
-    cout << "\n\nEnter your choice:\n\n";
-
-    choice4 = toupper(choice4);
+    choice4 = getPlayerChoice();
 
     switch (choice4) {
       case 'A':
