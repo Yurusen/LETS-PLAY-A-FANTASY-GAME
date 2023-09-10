@@ -9,9 +9,8 @@ bool playPart3 = false;
 bool playPart4 = false;
 bool playPart5 = false;
 bool playAgain = true;
-
 bool embarkQuest = true;
-
+bool play();
 
 class Part1;
 class Part2;
@@ -84,27 +83,12 @@ public:
 
 // Functions
 
-string getplayerName() {
+string getPlayerName() {
     string playerName;
     cout << "\n\nWelcome, brave traveler!\n\n"
     << "What name do you bear on this fantastical journey: ";
-    cin >> playerName;
+    getline(cin, playerName);
     return playerName;
-}
-
-bool play() {
-    char playGame;
-    cout << "Would you like to embark on your quest? (Y/N) : \n\n";
-    cin >> playGame;
-    if (toupper(playGame) == 'Y') {
-        startPart1 = true;
-        playPart2 = false;
-        playPart3 = false;
-    }
-    else {
-        cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
-        return false;
-    }
 }
 
 bool restartGame() {
@@ -112,14 +96,36 @@ bool restartGame() {
     cout << "Would you like to start over? (Y/N) : \n\n";
     cin >> playAgain;
     if (toupper(playAgain) == 'Y') {
+      // fix logic so if user starts game again under the the first playGame function, and user selects Y to playAgain, the users name is asked, then part 1 can commence. 
       startPart1 = true;
       playPart2 = false;
       playPart3 = false;
       return true;
     }
     else {
-        cout << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
-        return false;
+        cerr << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n\n";
+        return restartGame();
+        // Add a for loop to offer 5/10 attempts of user input, after 5/10 attempts, advise game over and no more attempts can be tried.
+    }
+}
+
+bool play() {
+    char playGame;
+    cout << "Would you like to embark on your quest? (Y/N) : \n\n";
+    cin >> playGame;
+    cin.ignore();
+    if (toupper(playGame) == 'Y') {
+        startPart1 = true;
+        playPart2 = false;
+        playPart3 = false;
+    }
+    else if (toupper(playGame) == 'N') {
+        cerr << "\nFare thee well, valiant traveler of the mystical realm! Thank you for partaking in this fantastical adventure!\n";
+        return restartGame();
+    }
+    else {
+        cerr << "\nTo Enter the mystical domain, where only 'Y' and 'N' hold the key.\n";
+        return restartGame();
     }
 }
 
@@ -189,7 +195,7 @@ public:
                     break;
 
                 default:
-                    cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
+                    cerr << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
                     playAgain = restartGame();
                     break;
             }
@@ -243,7 +249,7 @@ public:
                     break;
 
                 default:
-                    cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
+                    cerr << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
                     playAgain = restartGame();
                     break;
             }
@@ -296,7 +302,7 @@ public:
                     break;
 
                 default:
-                    cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
+                    cerr << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
                     playAgain = restartGame();
                     break;
             }
@@ -350,7 +356,7 @@ public:
       break;
 
       default:
-      cout << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
+      cerr << "\nAh, dear traveler, it appears you've stepped into the realm of whimsy but missed a crucial turn. You've entered an invalid answer, akin to trying to fit a square peg into a round hole. Please choose anew, for the enchanted storybook awaits your proper choice.\n\n";
       playAgain = restartGame();
       break;
 
@@ -386,9 +392,9 @@ int main() {
 
     titleSynopsis();
 
-    char playGame = play();
+    bool playGame = play();
 
-    string playerName = getplayerName();
+    string playerName = getPlayerName();
 
     while (embarkQuest) {
 
